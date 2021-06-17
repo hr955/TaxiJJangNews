@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaxiJJangNews">
-        <activity android:name=".MainActivity">
+        <activity android:name=".news_list.NewsList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
