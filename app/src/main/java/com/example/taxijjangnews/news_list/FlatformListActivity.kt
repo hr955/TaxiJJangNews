@@ -7,39 +7,39 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taxijjangnews.ApiClient
 import com.example.taxijjangnews.R
-import com.example.taxijjangnews.databinding.ActivityNewsListBinding
-import com.example.taxijjangnews.news_list.retrofit.Flatforms
-import com.example.taxijjangnews.news_list.retrofit.FlatformsResponse
+import com.example.taxijjangnews.databinding.ActivityFlatformListBinding
+import com.example.taxijjangnews.news_list.retrofit.Flatform
+import com.example.taxijjangnews.news_list.retrofit.FlatformResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FlatformsListActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityNewsListBinding
+class FlatformListActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFlatformListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_news_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_flatform_list)
 
         loadData()
 
     }
 
-    private fun onBindView(floatformsList: ArrayList<Flatforms>) {
-        binding.rvNewsList.apply {
-            adapter = FlatformsListAdapter(floatformsList)
+    private fun onBindView(flatformList: ArrayList<Flatform>) {
+        binding.rvFlatformList.apply {
+            adapter = FlatformListAdapter(flatformList)
             layoutManager =
-                LinearLayoutManager(this@FlatformsListActivity, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(this@FlatformListActivity, LinearLayoutManager.VERTICAL, false)
         }
     }
 
     fun loadData() {
         val service = ApiClient.api
 
-        service.getFlatforms().enqueue(object : Callback<FlatformsResponse> {
+        service.getFlatform().enqueue(object : Callback<FlatformResponse> {
             override fun onResponse(
-                call: Call<FlatformsResponse>,
-                response: Response<FlatformsResponse>
+                call: Call<FlatformResponse>,
+                response: Response<FlatformResponse>
             ) {
                 if (response.isSuccessful) {
                     val body = response.body()
@@ -50,7 +50,7 @@ class FlatformsListActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<FlatformsResponse>, t: Throwable) {
+            override fun onFailure(call: Call<FlatformResponse>, t: Throwable) {
                 Log.d("testtest", "실패 : $t")
                 Log.d("testtest", "test")
             }

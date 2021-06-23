@@ -7,6 +7,6 @@ import com.example.taxijjangnews.R
 class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category)
+        setContentView(R.layout.activity_news_list)
     }
 }

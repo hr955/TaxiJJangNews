@@ -1,6 +1,6 @@
 package com.example.taxijjangnews
 
-import com.example.taxijjangnews.news_list.retrofit.FlatformsService
+import com.example.taxijjangnews.news_list.retrofit.FlatformService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -10,5 +10,5 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val api = retrofit.create(FlatformsService::class.java)
+    val api = retrofit.create(FlatformService::class.java)
 }

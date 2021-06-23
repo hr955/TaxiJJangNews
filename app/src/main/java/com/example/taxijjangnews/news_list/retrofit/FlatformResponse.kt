@@ -2,14 +2,14 @@ package com.example.taxijjangnews.news_list.retrofit
 
 import com.google.gson.annotations.SerializedName
 
-data class FlatformsResponse(
+data class FlatformResponse(
     val code: Int,
     val message: String,
-    val data: ArrayList<Flatforms>
+    val data: ArrayList<Flatform>
 )
 
-data class Flatforms(
+data class Flatform(
     val id: Int,
     @SerializedName("title")
-    val flatformsName: String
+    val flatformName: String
 )

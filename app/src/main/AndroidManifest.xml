@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaxiJJangNews">
-        <activity android:name=".news_list.FlatformsListActivity">
+        <activity android:name=".news_list.FlatformListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

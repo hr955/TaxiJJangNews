@@ -6,32 +6,31 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taxijjangnews.R
-import com.example.taxijjangnews.databinding.ItemCompanyListBinding
-import com.example.taxijjangnews.news_list.retrofit.Flatforms
-import com.example.taxijjangnews.news_list.retrofit.FlatformsResponse
+import com.example.taxijjangnews.databinding.ItemFlatformListBinding
+import com.example.taxijjangnews.news_list.retrofit.Flatform
 
-class FlatformsListAdapter(val floatformList: ArrayList<Flatforms>) : RecyclerView.Adapter<FlatformsListAdapter.NewsListViewHolder>() {
+class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.Adapter<FlatformListAdapter.NewsListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder =
         NewsListViewHolder(
             DataBindingUtil.inflate(
                 parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater,
-                R.layout.item_company_list,
+                R.layout.item_flatform_list,
                 parent,
                 false
             )
         )
 
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
-        holder.onBind(floatformList[position])
+        holder.onBind(flatformList[position])
     }
 
-    override fun getItemCount(): Int = floatformList.size
+    override fun getItemCount(): Int = flatformList.size
 
-    class NewsListViewHolder(private val binding: ItemCompanyListBinding) :
+    class NewsListViewHolder(private val binding: ItemFlatformListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(item: Flatforms) {
-            binding.tvNewsTitle.text = item.flatformsName
+        fun onBind(item: Flatform) {
+            binding.tvFlatformTitle.text = item.flatformName
         }
     }
 }
