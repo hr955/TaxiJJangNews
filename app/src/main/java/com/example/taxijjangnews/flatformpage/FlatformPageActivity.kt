@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.news_list
+package com.example.taxijjangnews.flatformpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taxijjangnews.retrofit.ApiClient
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityFlatformListBinding
-import com.example.taxijjangnews.news_list.retrofit.Flatform
-import com.example.taxijjangnews.news_list.retrofit.FlatformResponse
+import com.example.taxijjangnews.flatformpage.retrofit.Flatform
+import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FlatformListActivity : AppCompatActivity() {
+class FlatformPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFlatformListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class FlatformListActivity : AppCompatActivity() {
         binding.rvFlatformList.apply {
             adapter = FlatformListAdapter(flatformList)
             layoutManager =
-                LinearLayoutManager(this@FlatformListActivity, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(this@FlatformPageActivity, LinearLayoutManager.VERTICAL, false)
         }
     }
 

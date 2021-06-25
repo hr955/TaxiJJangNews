@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.category
+package com.example.taxijjangnews.newspage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

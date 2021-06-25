@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.news_list.retrofit
+package com.example.taxijjangnews.flatformpage.retrofit
 
 import com.google.gson.annotations.SerializedName
 

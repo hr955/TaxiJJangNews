@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".news_list.FlatformListActivity">
+        tools:context=".flatformpage.FlatformPageActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_flatform_list"

@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.news_list
+package com.example.taxijjangnews.flatformpage
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ItemFlatformListBinding
-import com.example.taxijjangnews.news_list.retrofit.Flatform
+import com.example.taxijjangnews.flatformpage.retrofit.Flatform
 
 class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.Adapter<FlatformListAdapter.NewsListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder =
