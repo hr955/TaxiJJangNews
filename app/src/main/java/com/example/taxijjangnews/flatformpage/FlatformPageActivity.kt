@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taxijjangnews.retrofit.ApiClient
 import com.example.taxijjangnews.R
-import com.example.taxijjangnews.databinding.ActivityFlatformListBinding
+import com.example.taxijjangnews.databinding.ActivityFlatformPageBinding
 import com.example.taxijjangnews.flatformpage.retrofit.Flatform
 import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
 import retrofit2.Call
@@ -15,11 +15,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FlatformPageActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityFlatformListBinding
+    private lateinit var binding: ActivityFlatformPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_flatform_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_flatform_page)
 
         loadData()
 
@@ -51,8 +51,7 @@ class FlatformPageActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<FlatformResponse>, t: Throwable) {
-                Log.d("testtest", "실패 : $t")
-                Log.d("testtest", "test")
+                Log.d("onfailure", "실패 : $t")
             }
         })
     }
