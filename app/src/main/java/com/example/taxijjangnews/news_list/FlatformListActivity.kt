@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.taxijjangnews.ApiClient
+import com.example.taxijjangnews.retrofit.ApiClient
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityFlatformListBinding
 import com.example.taxijjangnews.news_list.retrofit.Flatform
