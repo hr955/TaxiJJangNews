@@ -10,5 +10,5 @@ interface TaxiJJangNewsService {
     fun getFlatform(): Call<FlatformResponse>
 
     @GET("api/v1/naver/categories")
-    fun getCategory(): Call<CategoryResponse>
+    fun getNaverCategory(): Call<CategoryResponse>
 }
