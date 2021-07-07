@@ -4,20 +4,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityNewsPageBinding
-import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
 import com.example.taxijjangnews.newspage.category.Category
-import com.example.taxijjangnews.newspage.category.CategoryListAdapter
 import com.example.taxijjangnews.newspage.category.CategoryResponse
+import com.example.taxijjangnews.newspage.newslist.NewsListAdapter
 import com.example.taxijjangnews.retrofit.ApiClient
+import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class NewsPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewsPageBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,25 +28,29 @@ class NewsPageActivity : AppCompatActivity() {
 
     }
 
-    private fun onBindView(categoryList: ArrayList<Category>) {
-        binding.rvCategoryList.apply {
-            adapter = CategoryListAdapter(categoryList)
-            layoutManager =
-                    LinearLayoutManager(this@NewsPageActivity, LinearLayoutManager.HORIZONTAL, false)
+    fun onBindView(categoryList: ArrayList<Category>) {
+        binding.vpNewsList.apply {
+            adapter = NewsListAdapter(categoryList)
+            orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
+
+        TabLayoutMediator(binding.tabCategory, binding.vpNewsList) { tab, position ->
+            tab.text = categoryList[position].categoryItem
+        }.attach()
     }
 
-    private fun loadData(){
+    private fun loadData() {
         val service = ApiClient.api
 
-        service.getCategory().enqueue(object : Callback<CategoryResponse> {
-            override fun onResponse(call: Call<CategoryResponse>, response: Response<CategoryResponse>) {
+        /* TODO 플랫폼별 분기처리 */
+        service.getNaverCategory().enqueue(object : Callback<CategoryResponse> {
+            override fun onResponse(
+                call: Call<CategoryResponse>,
+                response: Response<CategoryResponse>
+            ) {
                 if (response.isSuccessful) {
-                    val body = response.body()
                     Log.d("responsebody", response.body().toString())
-                    body?.let {
-                        onBindView(it.data)
-                    }
+                    response.body()?.let { onBindView(it.data) }
                 }
             }
 

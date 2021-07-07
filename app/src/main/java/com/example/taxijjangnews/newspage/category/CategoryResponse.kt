@@ -9,7 +9,7 @@ data class CategoryResponse(
 )
 
 data class Category(
-        @SerializedName("title")
         val id: Int,
+        @SerializedName("title")
         val categoryItem: String
 )
