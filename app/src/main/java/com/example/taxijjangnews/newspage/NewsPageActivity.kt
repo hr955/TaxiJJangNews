@@ -23,8 +23,8 @@ class NewsPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_news_page)
-
-        loadData()
+        val flatform = intent.getStringExtra("flatform")
+        loadData(flatform)
 
     }
 
@@ -39,14 +39,18 @@ class NewsPageActivity : AppCompatActivity() {
         }.attach()
     }
 
-    private fun loadData() {
-        val service = ApiClient.api
+    private fun loadData(flatform: String?) {
+        var service: Call<CategoryResponse> = ApiClient.api.getNaverCategory()
+        when (flatform) {
+            "naver" -> service = ApiClient.api.getNaverCategory()
+            "daum" -> service = ApiClient.api.getDaumCategory()
+        }
 
         /* TODO 플랫폼별 분기처리 */
-        service.getNaverCategory().enqueue(object : Callback<CategoryResponse> {
+        service.enqueue(object : Callback<CategoryResponse> {
             override fun onResponse(
-                call: Call<CategoryResponse>,
-                response: Response<CategoryResponse>
+                    call: Call<CategoryResponse>,
+                    response: Response<CategoryResponse>
             ) {
                 if (response.isSuccessful) {
                     Log.d("responsebody", response.body().toString())

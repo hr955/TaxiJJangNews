@@ -1,5 +1,6 @@
 package com.example.taxijjangnews.flatformpage
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityFlatformPageBinding
 import com.example.taxijjangnews.flatformpage.retrofit.Flatform
 import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
+import com.example.taxijjangnews.newspage.NewsPageActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
