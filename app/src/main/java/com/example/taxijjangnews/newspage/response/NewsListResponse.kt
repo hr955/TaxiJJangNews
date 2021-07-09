@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage.newslist
+package com.example.taxijjangnews.newspage.response
 
 import com.google.gson.annotations.SerializedName
 import java.net.URL

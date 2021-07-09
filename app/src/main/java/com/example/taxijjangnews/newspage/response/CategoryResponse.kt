@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage.category
+package com.example.taxijjangnews.newspage.adapter
 
 import com.google.gson.annotations.SerializedName
 

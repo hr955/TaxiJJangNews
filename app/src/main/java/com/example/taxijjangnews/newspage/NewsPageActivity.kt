@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityNewsPageBinding
-import com.example.taxijjangnews.newspage.category.Category
-import com.example.taxijjangnews.newspage.category.CategoryResponse
-import com.example.taxijjangnews.newspage.newslist.NewsListViewPagerAdapter
+import com.example.taxijjangnews.newspage.adapter.Category
+import com.example.taxijjangnews.newspage.adapter.CategoryResponse
+import com.example.taxijjangnews.newspage.adapter.NewsListViewPagerAdapter
 import com.example.taxijjangnews.retrofit.ApiClient
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
@@ -46,7 +46,6 @@ class NewsPageActivity : AppCompatActivity() {
             "daum" -> service = ApiClient.api.getDaumCategory()
         }
 
-        /* TODO 플랫폼별 분기처리 */
         service.enqueue(object : Callback<CategoryResponse> {
             override fun onResponse(
                     call: Call<CategoryResponse>,

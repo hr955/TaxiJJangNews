@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage.newslist
+package com.example.taxijjangnews.newspage.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ItemNewsListBinding
+import com.example.taxijjangnews.newspage.response.NewsList
+import com.example.taxijjangnews.newspage.response.NewsListResponse
 
 /* NewsListFragment RecyclerView Adapter*/
 class NewsListRecyclerViewAdapter(private val newsList: NewsListResponse) : RecyclerView.Adapter<NewsListRecyclerViewAdapter.NewsListRecyclerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListRecyclerViewAdapter.NewsListRecyclerViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListRecyclerViewHolder =
             NewsListRecyclerViewHolder(
                     DataBindingUtil.inflate(
                             parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater,
@@ -20,7 +22,7 @@ class NewsListRecyclerViewAdapter(private val newsList: NewsListResponse) : Recy
                     )
             )
 
-    override fun onBindViewHolder(holder: NewsListRecyclerViewAdapter.NewsListRecyclerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NewsListRecyclerViewHolder, position: Int) {
         holder.onBind(newsList.data[position])
     }
 
