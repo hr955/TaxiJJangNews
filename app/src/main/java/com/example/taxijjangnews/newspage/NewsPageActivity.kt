@@ -9,7 +9,7 @@ import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityNewsPageBinding
 import com.example.taxijjangnews.newspage.category.Category
 import com.example.taxijjangnews.newspage.category.CategoryResponse
-import com.example.taxijjangnews.newspage.newslist.NewsListAdapter
+import com.example.taxijjangnews.newspage.newslist.NewsListViewPagerAdapter
 import com.example.taxijjangnews.retrofit.ApiClient
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
@@ -19,18 +19,18 @@ import retrofit2.Response
 class NewsPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewsPageBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_news_page)
         val flatform = intent.getStringExtra("flatform")
+
         loadData(flatform)
 
     }
 
-    fun onBindView(categoryList: ArrayList<Category>) {
+    fun onBindView(flatform: String?, categoryList: ArrayList<Category>) {
         binding.vpNewsList.apply {
-            adapter = NewsListAdapter(categoryList)
+            adapter = NewsListViewPagerAdapter(this@NewsPageActivity, flatform!!, categoryList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
@@ -54,7 +54,7 @@ class NewsPageActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     Log.d("responsebody", response.body().toString())
-                    response.body()?.let { onBindView(it.data) }
+                    response.body()?.let { onBindView(flatform, it.data) }
                 }
             }
 

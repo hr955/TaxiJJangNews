@@ -13,6 +13,6 @@ data class NewsList(
     val id: Int,
     @SerializedName("title")
     val newsTitle: String,
-    val rank: Int,
-    val url: URL
+    val rank: Int
+    //val url: URL
 )
