@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage.adapter
+package com.example.taxijjangnews.newslistpage.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ItemNewsListBinding
-import com.example.taxijjangnews.newspage.response.NewsList
-import com.example.taxijjangnews.newspage.response.NewsListResponse
+import com.example.taxijjangnews.newslistpage.response.NewsList
+import com.example.taxijjangnews.newslistpage.response.NewsListResponse
 
 /* NewsListFragment RecyclerView Adapter*/
 class NewsListRecyclerViewAdapter(private val newsList: NewsListResponse) : RecyclerView.Adapter<NewsListRecyclerViewAdapter.NewsListRecyclerViewHolder>() {

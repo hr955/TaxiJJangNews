@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage
+package com.example.taxijjangnews.newslistpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityNewsPageBinding
-import com.example.taxijjangnews.newspage.adapter.Category
-import com.example.taxijjangnews.newspage.adapter.CategoryResponse
-import com.example.taxijjangnews.newspage.adapter.NewsListViewPagerAdapter
+import com.example.taxijjangnews.newslistpage.adapter.Category
+import com.example.taxijjangnews.newslistpage.adapter.CategoryResponse
+import com.example.taxijjangnews.newslistpage.adapter.NewsListViewPagerAdapter
 import com.example.taxijjangnews.retrofit.ApiClient
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call

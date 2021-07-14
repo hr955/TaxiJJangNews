@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage.adapter
+package com.example.taxijjangnews.newslistpage.adapter
 
 import com.google.gson.annotations.SerializedName
 

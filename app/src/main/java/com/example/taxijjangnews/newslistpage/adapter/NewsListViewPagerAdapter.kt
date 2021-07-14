@@ -1,9 +1,9 @@
-package com.example.taxijjangnews.newspage.adapter
+package com.example.taxijjangnews.newslistpage.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.taxijjangnews.newspage.NewsListFragment
+import com.example.taxijjangnews.newslistpage.NewsListFragment
 
 /* ViewPager Adapter */
 class NewsListViewPagerAdapter(fragmentActivity: FragmentActivity, private val flatform: String, private val category: ArrayList<Category>) : FragmentStateAdapter(fragmentActivity) {

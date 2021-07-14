@@ -1,7 +1,6 @@
-package com.example.taxijjangnews.newspage.response
+package com.example.taxijjangnews.newslistpage.response
 
 import com.google.gson.annotations.SerializedName
-import java.net.URL
 
 data class NewsListResponse(
     val code: Int,

@@ -1,8 +1,8 @@
 package com.example.taxijjangnews.retrofit
 
 import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
-import com.example.taxijjangnews.newspage.adapter.CategoryResponse
-import com.example.taxijjangnews.newspage.response.NewsListResponse
+import com.example.taxijjangnews.newslistpage.adapter.CategoryResponse
+import com.example.taxijjangnews.newslistpage.response.NewsListResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

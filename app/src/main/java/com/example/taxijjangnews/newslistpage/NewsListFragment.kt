@@ -1,4 +1,4 @@
-package com.example.taxijjangnews.newspage
+package com.example.taxijjangnews.newslistpage
 
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.FragmentNewsListBinding
-import com.example.taxijjangnews.newspage.adapter.NewsListRecyclerViewAdapter
-import com.example.taxijjangnews.newspage.response.NewsListResponse
+import com.example.taxijjangnews.newslistpage.adapter.NewsListRecyclerViewAdapter
+import com.example.taxijjangnews.newslistpage.response.NewsListResponse
 import com.example.taxijjangnews.retrofit.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
