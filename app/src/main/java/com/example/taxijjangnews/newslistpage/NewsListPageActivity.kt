@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NewsPageActivity : AppCompatActivity() {
+class NewsListPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewsPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class NewsPageActivity : AppCompatActivity() {
 
     fun onBindView(flatform: String?, categoryList: ArrayList<Category>) {
         binding.vpNewsList.apply {
-            adapter = NewsListViewPagerAdapter(this@NewsPageActivity, flatform!!, categoryList)
+            adapter = NewsListViewPagerAdapter(this@NewsListPageActivity, flatform!!, categoryList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 

@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaxiJJangNews"
         android:usesCleartextTraffic="true">
+        <activity android:name=".newspage.NewsActivity"></activity>
         <activity android:name=".flatformpage.FlatformPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".newslistpage.NewsPageActivity" />
+        <activity android:name=".newslistpage.NewsListPageActivity" />
     </application>
 
 </manifest>

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ItemFlatformListBinding
 import com.example.taxijjangnews.flatformpage.retrofit.Flatform
-import com.example.taxijjangnews.newslistpage.NewsPageActivity
+import com.example.taxijjangnews.newslistpage.NewsListPageActivity
 
 class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.Adapter<FlatformListAdapter.NewsListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder =
@@ -26,7 +26,7 @@ class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
         holder.onBind(flatformList[position])
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, NewsPageActivity::class.java)
+            val intent = Intent(holder.itemView.context, NewsListPageActivity::class.java)
             intent.putExtra("flatform","${flatformList[position].flatformName}")
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
