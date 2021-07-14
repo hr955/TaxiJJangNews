@@ -26,8 +26,13 @@ class FlatformPageActivity : AppCompatActivity() {
     }
 
     private fun onBindView(flatformList: ArrayList<Flatform>) {
+        val thumbList = arrayListOf(
+            R.drawable.naver_logo,
+            R.drawable.daum_logo
+        )
+
         binding.rvFlatformList.apply {
-            adapter = FlatformListAdapter(flatformList)
+            adapter = FlatformListAdapter(flatformList, thumbList)
             layoutManager =
                 LinearLayoutManager(this@FlatformPageActivity, LinearLayoutManager.VERTICAL, false)
         }

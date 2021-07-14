@@ -12,7 +12,7 @@ import com.example.taxijjangnews.databinding.ItemFlatformListBinding
 import com.example.taxijjangnews.flatformpage.retrofit.Flatform
 import com.example.taxijjangnews.newslistpage.NewsListPageActivity
 
-class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.Adapter<FlatformListAdapter.NewsListViewHolder>() {
+class FlatformListAdapter(val flatformList: ArrayList<Flatform>, val thumbList: ArrayList<Int>) : RecyclerView.Adapter<FlatformListAdapter.NewsListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder =
             NewsListViewHolder(
                     DataBindingUtil.inflate(
@@ -24,7 +24,8 @@ class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.
             )
 
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
-        holder.onBind(flatformList[position])
+        holder.onBind(flatformList[position],thumbList[position])
+
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, NewsListPageActivity::class.java)
             intent.putExtra("flatform","${flatformList[position].flatformName}")
@@ -37,8 +38,9 @@ class FlatformListAdapter(val flatformList: ArrayList<Flatform>) : RecyclerView.
     class NewsListViewHolder(private val binding: ItemFlatformListBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(item: Flatform) {
+        fun onBind(item: Flatform, thumb: Int) {
             binding.tvFlatformTitle.text = item.flatformName
+            binding.ivFlatformThumb.setImageResource(thumb)
         }
     }
 }
