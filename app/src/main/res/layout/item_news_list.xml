@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/tv_news_title"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textColor="@color/title_text"
