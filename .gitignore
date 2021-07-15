@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+hrkey.jks
+/app/release
