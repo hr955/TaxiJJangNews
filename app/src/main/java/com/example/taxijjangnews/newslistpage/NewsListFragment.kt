@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NewsListFragment(val flatform: String, private val category: String) : Fragment() {
+class NewsListFragment(private val platform: String, private val category: String) : Fragment() {
     private lateinit var binding: FragmentNewsListBinding
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class NewsListFragment(val flatform: String, private val category: String) : Fra
 
     fun loadData(success: (response: NewsListResponse) -> Unit) {
         var service: Call<NewsListResponse> = ApiClient.api.getNaverBaseballNews()
-        if (flatform == "naver") {
+        if (platform == "naver") {
             when (category) {
                 "baseball" -> service = ApiClient.api.getNaverBaseballNews()
                 "wbaseball" -> service = ApiClient.api.getNaverWBaseballNews()
@@ -55,7 +55,7 @@ class NewsListFragment(val flatform: String, private val category: String) : Fra
                 "esports" -> service = ApiClient.api.getNaverEsportsNews()
             }
 
-        } else if (flatform == "daum") {
+        } else if (platform == "daum") {
             when (category) {
                 "baseball" -> service = ApiClient.api.getDaumBaseballNews()
                 "wbaseball" -> service = ApiClient.api.getDaumWBaseballNews()

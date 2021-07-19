@@ -7,7 +7,7 @@
         android:layout_height="60dp">
 
         <ImageView
-            android:id="@+id/iv_flatform_thumb"
+            android:id="@+id/iv_platform_thumb"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
@@ -16,14 +16,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_flatform_title"
+            android:id="@+id/tv_platform_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textColor="@color/title_text"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_flatform_thumb"
+            app:layout_constraintStart_toEndOf="@+id/iv_platform_thumb"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View

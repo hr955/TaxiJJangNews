@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TaxiJJangNews"
         android:usesCleartextTraffic="true">
         <activity android:name=".newspage.NewsActivity"></activity>
-        <activity android:name=".flatformpage.FlatformPageActivity">
+        <activity android:name=".platformpage.PlatformPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

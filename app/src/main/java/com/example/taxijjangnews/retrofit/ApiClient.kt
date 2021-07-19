@@ -9,5 +9,5 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val api = retrofit.create(TaxiJJangNewsService::class.java)
+    val api: TaxiJJangNewsService = retrofit.create(TaxiJJangNewsService::class.java)
 }

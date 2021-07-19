@@ -1,15 +1,15 @@
 package com.example.taxijjangnews.retrofit
 
-import com.example.taxijjangnews.flatformpage.retrofit.FlatformResponse
 import com.example.taxijjangnews.newslistpage.adapter.CategoryResponse
 import com.example.taxijjangnews.newslistpage.response.NewsListResponse
+import com.example.taxijjangnews.platformpage.retrofit.PlatformResponse
 import retrofit2.Call
 import retrofit2.http.GET
 
 interface TaxiJJangNewsService {
     /* NOTE ------- 플랫폼 ------- */
     @GET("api/v1/flatforms")
-    fun getFlatform(): Call<FlatformResponse>
+    fun getFlatform(): Call<PlatformResponse>
 
     /* NOTE ------- 카테고리 ------- */
     @GET("api/v1/naver/categories")

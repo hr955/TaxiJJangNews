@@ -6,10 +6,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".flatformpage.FlatformPageActivity">
+        tools:context=".platformpage.PlatformPageActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_flatform_list"
+            android:id="@+id/rv_platform_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"

@@ -22,15 +22,15 @@ class NewsListPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_news_page)
-        val flatform = intent.getStringExtra("flatform")
+        val platform = intent.getStringExtra("platform")
 
-        loadData(flatform)
+        loadData(platform)
 
     }
 
-    fun onBindView(flatform: String?, categoryList: ArrayList<Category>) {
+    fun onBindView(platform: String?, categoryList: ArrayList<Category>) {
         binding.vpNewsList.apply {
-            adapter = NewsListViewPagerAdapter(this@NewsListPageActivity, flatform!!, categoryList)
+            adapter = NewsListViewPagerAdapter(this@NewsListPageActivity, platform!!, categoryList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
@@ -39,9 +39,9 @@ class NewsListPageActivity : AppCompatActivity() {
         }.attach()
     }
 
-    private fun loadData(flatform: String?) {
+    private fun loadData(platform: String?) {
         var service: Call<CategoryResponse> = ApiClient.api.getNaverCategory()
-        when (flatform) {
+        when (platform) {
             "naver" -> service = ApiClient.api.getNaverCategory()
             "daum" -> service = ApiClient.api.getDaumCategory()
         }
@@ -53,7 +53,7 @@ class NewsListPageActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     Log.d("responsebody", response.body().toString())
-                    response.body()?.let { onBindView(flatform, it.data) }
+                    response.body()?.let { onBindView(platform, it.data) }
                 }
             }
 
