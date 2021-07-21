@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.example.taxijjangnews.R
 import com.example.taxijjangnews.databinding.ActivityNewsPageBinding
-import com.example.taxijjangnews.favoritecategory.FavoriteCategoryActivity
+import com.example.taxijjangnews.categorysetting.CategorySettingActivity
 import com.example.taxijjangnews.newslistpage.adapter.Category
 import com.example.taxijjangnews.newslistpage.adapter.CategoryResponse
 import com.example.taxijjangnews.newslistpage.adapter.NewsListViewPagerAdapter
@@ -33,7 +33,7 @@ class NewsListPageActivity : AppCompatActivity() {
 
     private fun setButtonClickEvent(){
         binding.btnAddFavorite.setOnClickListener {
-            startActivity(Intent(this, FavoriteCategoryActivity::class.java))
+            startActivity(Intent(this, CategorySettingActivity::class.java))
         }
     }
 
