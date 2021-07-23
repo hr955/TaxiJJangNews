@@ -11,7 +11,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_category_setting"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
