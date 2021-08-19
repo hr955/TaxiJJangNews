@@ -38,7 +38,7 @@ class PlatformPageActivity : AppCompatActivity() {
         }
     }
 
-    fun loadData() {
+    private fun loadData() {
         val service = ApiClient.api
 
         service.getFlatform().enqueue(object : Callback<PlatformResponse> {

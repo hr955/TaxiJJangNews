@@ -1,6 +1,8 @@
 package com.example.taxijjangnews.newslistpage
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,29 +28,31 @@ class NewsListPageActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_news_page)
         val platform = intent.getStringExtra("platform")
 
-        loadData(platform)
-        setButtonClickEvent()
+        loadData(platform,applicationContext)
+        setButtonClickEvent(platform)
 
     }
 
-    private fun setButtonClickEvent(){
+    private fun setButtonClickEvent(platform: String?) {
         binding.btnAddFavorite.setOnClickListener {
-            startActivity(Intent(this, CategorySettingActivity::class.java))
+            val intent = Intent(this, CategorySettingActivity::class.java)
+            intent.putExtra("platform", platform)
+            startActivity(intent)
         }
     }
 
-    fun onBindView(platform: String?, categoryList: ArrayList<Category>) {
+    private fun onBindView(platform: String?, priorityCategoryList: ArrayList<String>) {
         binding.vpNewsList.apply {
-            adapter = NewsListViewPagerAdapter(this@NewsListPageActivity, platform!!, categoryList)
+            adapter = NewsListViewPagerAdapter(this@NewsListPageActivity, platform!!, priorityCategoryList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
         TabLayoutMediator(binding.tabCategory, binding.vpNewsList) { tab, position ->
-            tab.text = categoryList[position].categoryItem
+            tab.text = priorityCategoryList[position]
         }.attach()
     }
 
-    private fun loadData(platform: String?) {
+    private fun loadData(platform: String?, context: Context) {
         var service: Call<CategoryResponse> = ApiClient.api.getNaverCategory()
         when (platform) {
             "naver" -> service = ApiClient.api.getNaverCategory()
@@ -61,14 +65,34 @@ class NewsListPageActivity : AppCompatActivity() {
                     response: Response<CategoryResponse>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("responsebody", response.body().toString())
-                    response.body()?.let { onBindView(platform, it.data) }
+                    Log.d("ResponseBody", response.body().toString())
+                    //response.body()?.let { onBindView(platform, it.data) }
+                    response.body()?.let { categoryPreference(platform, context, it.data) }
+
                 }
             }
 
             override fun onFailure(call: Call<CategoryResponse>, t: Throwable) {
-                Log.d("onfailure", "실패 : $t")
+                Log.d("onFailure", "실패 : $t")
             }
         })
+    }
+
+    fun categoryPreference(platform: String?, context: Context, categoryList: ArrayList<Category>) {
+        var priorityCategoryList = ArrayList<String>()
+        val prefName = "${platform}_prefs"
+        val sharedPref: SharedPreferences =
+                context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        for (i in categoryList.indices)
+            if (sharedPref.contains(i.toString())) {
+                priorityCategoryList.add(sharedPref.getString("$i", " ") ?: "NULL")
+            } else {
+                editor.putString(i.toString(), "${categoryList[i].categoryItem}")
+                priorityCategoryList.add(categoryList[i].categoryItem)
+            }
+        editor.apply()
+        onBindView(platform, priorityCategoryList)
     }
 }
